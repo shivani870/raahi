@@ -10,7 +10,7 @@ try:
 
     file = open(file_name, 'w', newline='')
     writer = csv.writer(file)
-    writer.writerow(["Node_id", "RAM", "CPU", "Battery", "Internal", "Class", "Range", "Network_type"])
+    writer.writerow(["RAM", "CPU", "Battery", "Internal", "Class", "Range", "Network_type"])
 
     rng = random.SystemRandom()
     ram_memory_size = [1, 2, 3, 4, 6, 8]
@@ -19,7 +19,6 @@ try:
     while i < number_of_records:
         i = i + 1
 
-        node_id = i
         ram = rng.choice(ram_memory_size)
         cpu = round(rng.uniform(1, 3.5), 1)
         
@@ -46,6 +45,6 @@ try:
         else:
             network_type = 'DTN'
 
-        writer.writerow([node_id, ram, cpu, battery, internal, network_class, range, network_type])
+        writer.writerow([ram, cpu, battery, internal, network_class, range, network_type])
 except:
     print('Give me a file name and the number of nodes you want to generate')
