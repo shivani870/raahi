@@ -26,11 +26,11 @@ try:
         internal = rng.choice(internal_memory_size)
         network_class = 0
 
-        if ((battery >= 80 and internal >= 60) or (battery >= 80 and (internal < 60 and internal > 20)) or ((battery < 80 and battery > 10) and internal >= 60) or ((battery < 80 and battery > 10) and (internal < 60 and internal > 20))):
+        if ((battery >= 80 and internal >= 60) or (battery >= 80 and (internal < 60 and internal > 20)) or ((battery < 80 and battery > 20) and internal >= 60) or ((battery < 80 and battery > 20) and (internal < 60 and internal > 20))):
             network_class = 1
-        elif ((battery >= 80 and internal <= 20) or ((battery < 80 and battery > 10) and internal <= 20)):
+        elif ((battery >= 80 and internal <= 20) or ((battery < 80 and battery > 20) and internal <= 20)):
             network_class = 2
-        elif ((battery <= 10 and internal >= 60) or (battery <= 10 and (internal < 60 and internal > 20))):
+        elif ((battery <= 20 and internal >= 60) or (battery <= 20 and (internal < 60 and internal > 20))):
             network_class = 3
         else:
             network_class = 4
