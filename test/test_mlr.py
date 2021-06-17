@@ -4,23 +4,24 @@ from sklearn.metrics import r2_score
 import joblib
 import matplotlib.pyplot as plt
 
-
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 # Loading data
-file_path = os.path.join('data', 'test_dataset.csv')
+file_path = os.path.join('..', 'data', 'test_dataset.csv')
 data_nodes = pd.read_csv(file_path)
 
 x = data_nodes[['Battery', 'Internal']].values
 y = data_nodes['Class'].values
 
-model_path = os.path.join('models', 'mlr_model.pkl')
+model_path = os.path.join('..', 'models', 'mlr_model.pkl')
 ml = joblib.load(model_path)
 
 y_pred = ml.predict(x)
 
 print("\nAccuracy:",r2_score(y, y_pred))
 
-plt.figure(figsize=(15,10))
+plt.figure(figsize=(10,10))
 plt.scatter(y, y_pred, color='red')
+plt.plot([1,2,3,4], [1,2,3,4])
 plt.xlabel('Actual')
 plt.ylabel('Predicted')
 plt.title('Actual vs Predicted')
